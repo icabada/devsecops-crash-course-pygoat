@@ -39,3 +39,7 @@ jobs:
 
     - name: Build Docker Image
       run: docker build -t myapp:latest .
+
+    - name: Docker Scout
+      uses: docker/scout-action@v1.16.1
+        with: quickview
