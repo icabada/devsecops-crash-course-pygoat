@@ -21,3 +21,10 @@ jobs:
 
     - name: Run Bandit Scan
       run: bandit -r -ii -ll . -f json -o bandits.json
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.6.1
+      if: always()
+      with:
+        name: bandit-findings
+        path: bandit.json
