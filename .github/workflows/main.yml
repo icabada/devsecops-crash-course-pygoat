@@ -43,3 +43,7 @@ jobs:
     - name: Docker Scout
       uses: docker/scout-action@v1.16.1
         with: quickview
+          command: cves
+          image: myapp:latest
+          sarif-file: sarif.output.json
+          summary: true
