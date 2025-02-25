@@ -39,3 +39,12 @@ jobs:
 
     - name: Build Docker Image
       run: docker build -t myapp:latest .
+
+    - name: Analyze for critical and high CVEs
+      id: docker-scout-cves
+      uses: docker/scout-action@v1
+      with:
+        command: cves
+        image: myapp:latest
+        sarif-file: sarif.output.json
+        summary: true
