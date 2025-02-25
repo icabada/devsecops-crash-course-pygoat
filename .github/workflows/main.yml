@@ -38,7 +38,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build Docker Image
-      run: docker build -t myapp:latest .
+      run: |
+        docker build -t myapp:latest .
+        echo ${{ secrets.REPO_PWD }} | docker login -u ${{ secrets.REPO_USER }} --password-stdin
 
     - name: Analyze for critical and high CVEs
       id: docker-scout-cves
